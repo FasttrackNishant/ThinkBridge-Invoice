@@ -5,7 +5,7 @@ using ThinkBridge.Client.Components.Domain;
 
 namespace ThinkBridge.Client.Components.Pages;
 
-public partial class TestInvoicePage : ComponentBase
+public partial class InvoiceDBPage : ComponentBase
 {
     private List<Invoice>? invoices;
 
