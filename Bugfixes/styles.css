@@ -1,0 +1,21 @@
+body {
+    /* colour -> color */
+    background-color: #f9f9f9;
+    font-family: 'Helvetica', sans-serif; 
+    /* famly -> family */
+}
+
+#invoice-container {
+    border: 1px solid #ccc;
+    /* paddding -> padding  */
+    padding: 20px;
+    width: 60%;
+    /* margn -> margin */
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center; 
+    /* cetner -> center */
+}
