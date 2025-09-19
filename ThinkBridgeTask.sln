@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThinkBridge.Api", "ThinkBridge.Api\ThinkBridge.Api.csproj", "{63902266-018D-4563-BE57-565DDAF97D1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThinkBridge.Client", "ThinkBridge.Client\ThinkBridge.Client.csproj", "{5CB1248E-2DED-441F-BF68-6FA9AD6BAA20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63902266-018D-4563-BE57-565DDAF97D1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63902266-018D-4563-BE57-565DDAF97D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63902266-018D-4563-BE57-565DDAF97D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63902266-018D-4563-BE57-565DDAF97D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CB1248E-2DED-441F-BF68-6FA9AD6BAA20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CB1248E-2DED-441F-BF68-6FA9AD6BAA20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CB1248E-2DED-441F-BF68-6FA9AD6BAA20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CB1248E-2DED-441F-BF68-6FA9AD6BAA20}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

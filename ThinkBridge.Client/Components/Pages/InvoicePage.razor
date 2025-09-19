@@ -1,0 +1,57 @@
+@page "/invoices-memory"
+@using ThinkBridge.Client.Components.Domain
+
+<h3>Invoices</h3>
+
+<button @onclick="ShowAddForm">Add Invoice</button>
+
+@if (showForm)
+{
+    <EditForm Model="formInvoice" OnValidSubmit="SaveInvoice">
+        <div style="margin-top:10px;">
+            <label>Customer Name:</label><br />
+            <InputText @bind-Value="formInvoice.CustomerName" /><br /><br />
+
+            <label>Items:</label><br />
+            @foreach (var item in formInvoice.Items)
+            {
+                <div>
+                    Name: <InputText @bind-Value="item.Name" />
+                    Price: <InputNumber @bind-Value="item.Price" />
+                    <button type="button" @onclick="() => RemoveItem(item)">Remove</button>
+                </div>
+            }
+            <button type="button" @onclick="AddNewItem">Add Item</button><br /><br />
+
+            <button type="submit">Save</button>
+            <button type="button" @onclick="CancelForm">Cancel</button>
+        </div>
+    </EditForm>
+    <hr />
+}
+
+@if (invoices != null)
+{
+    @foreach (var inv in invoices)
+    {
+        <div>
+            <b>Invoice ID:</b> @inv.InvoiceID <br />
+            <b>Customer:</b> @inv.CustomerName <br />
+
+            @if (inv.Items != null && inv.Items.Any())
+            {
+                <b>Items:</b>
+                <ul>
+                    @foreach (var item in inv.Items)
+                    {
+                        <li>@item.Name - @item.Price</li>
+                    }
+                </ul>
+            }
+
+            <button @onclick="() => EditInvoice(inv)">Edit</button>
+            <button @onclick="() => DeleteInvoice(inv.InvoiceID)">Delete</button>
+            <hr />
+        </div>
+    }
+}

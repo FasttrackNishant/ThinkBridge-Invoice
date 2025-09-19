@@ -1,0 +1,6 @@
+@ThinkBridge.Api_HostAddress = http://localhost:5065
+
+GET {{ThinkBridge.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
