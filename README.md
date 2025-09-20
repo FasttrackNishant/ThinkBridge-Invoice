@@ -11,6 +11,7 @@
 ### Run Backend (API)  
 ```bash
 cd ThinkBridge.Api
+dotnet build
 dotnet run
 ```
 Runs on ** https://localhost:7283  || http://localhost:5065**  
@@ -22,6 +23,7 @@ Swagger: https://localhost:7283/swagger
 ### Run Frontend (Blazor Server)  
 ```bash
 cd ThinkBridge.Client
+dotnet build
 dotnet run
 ```
 Runs on ** https://localhost:7024 ||  http://localhost:5225 **  
