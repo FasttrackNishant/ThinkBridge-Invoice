@@ -19,7 +19,7 @@ public class Program
 
         builder.Services.AddHttpClient("API", client =>
         {
-            client.BaseAddress = new Uri("https://localhost:7283/");
+            client.BaseAddress = new Uri("https://thinkbridge-api.azurewebsites.net/");
         });
 
         var app = builder.Build();
