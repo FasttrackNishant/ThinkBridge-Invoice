@@ -1,5 +1,3 @@
-
-
 using Microsoft.EntityFrameworkCore;
 using ThinkBridge.Api.Infrastructure;
 using ThinkBridge.Api.Interfaces;
@@ -30,16 +28,13 @@ public class InvoiceRepository : IInvoiceRepository
             .FirstOrDefaultAsync(i => i.InvoiceID == id);
     }
 
-    public async Task AddAsync(Invoice invoice)
+    public async Task<Invoice> AddInvoiceAsync(Invoice invoice)
     {
-        await _context.Invoices.AddAsync(invoice);
+        _context.Invoices.Add(invoice);
+        await SaveChangesAsync();
+        return invoice;
     }
-    
-    private async Task SaveChangesAsync()
-    {
-        await _context.SaveChangesAsync();
-    }
-    
+
     public async Task DeleteAsync(int id)
     {
         var invoice = await _context.Invoices
@@ -53,6 +48,9 @@ public class InvoiceRepository : IInvoiceRepository
             await SaveChangesAsync();
         }
     }
+
+    private async Task SaveChangesAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
 }
-
-

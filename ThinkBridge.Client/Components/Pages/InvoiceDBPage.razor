@@ -1,7 +1,8 @@
 @page "/invoices-api"
 @using ThinkBridge.Client.Components.Domain
 
-<h3>Invoices</h3>
+<h3>Invoices : Database </h3>
+<h4>This in DB Integrated Page : Your Changes will be saved to Azure SQL Database</h4>
 
 @if (invoices == null)
 {
@@ -53,7 +54,6 @@ else
                 </ul>
             }
 
-            <button @onclick="() => EditInvoice(inv)">Edit</button>
             <button @onclick="() => DeleteInvoice(inv.InvoiceID)">Delete</button>
             <hr />
         </div>

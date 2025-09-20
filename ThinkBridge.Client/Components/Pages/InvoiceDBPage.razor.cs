@@ -1,4 +1,4 @@
-
+using System.IO.Pipes;
 using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
 using ThinkBridge.Client.Components.Domain;
@@ -13,7 +13,9 @@ public partial class InvoiceDBPage : ComponentBase
     private Invoice formInvoice = new();
     private Invoice? editInvoice;
 
-    [Inject] private HttpClient _Http { get; set; } = default!;
+    [Inject] private IHttpClientFactory ClientFactory { get; set; } = default;
+
+    private HttpClient _Http => ClientFactory.CreateClient("API");
 
     protected override async Task OnInitializedAsync()
     {
@@ -22,7 +24,7 @@ public partial class InvoiceDBPage : ComponentBase
 
     private async Task LoadInvoices()
     {
-        invoices = await _Http.GetFromJsonAsync<List<Invoice>>("https://localhost:7283/api/v1/invoice");
+        invoices = await _Http.GetFromJsonAsync<List<Invoice>>("api/v1/invoicedb");
     }
 
     private void ShowAddForm()
@@ -73,11 +75,11 @@ public partial class InvoiceDBPage : ComponentBase
     {
         if (editInvoice != null)
         {
-            await _Http.PutAsJsonAsync($"https://localhost:7283/api/v1/invoice/{formInvoice.InvoiceID}", formInvoice);
+            await _Http.PutAsJsonAsync($"api/v1/invoicedb/{formInvoice.InvoiceID}", formInvoice);
         }
         else
         {
-            await _Http.PostAsJsonAsync("https://localhost:7283/api/v1/invoice", formInvoice);
+            await _Http.PostAsJsonAsync("api/v1/invoicedb", formInvoice);
         }
 
         showForm = false;
@@ -86,7 +88,7 @@ public partial class InvoiceDBPage : ComponentBase
 
     private async Task DeleteInvoice(int id)
     {
-        await _Http.DeleteAsync($"https://localhost:7283/api/v1/invoice/{id}");
+        await _Http.DeleteAsync($"api/v1/invoicedb/{id}");
         await LoadInvoices();
     }
 }

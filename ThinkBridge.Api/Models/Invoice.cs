@@ -7,3 +7,4 @@ public class Invoice
 
     public List<InvoiceItem> Items { get; set; } = new();
 }
+
